@@ -5,6 +5,7 @@ filetype plugin on
 syntax on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://github.com/junegunn/vim-plug
 " => vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'taglist.vim'
