@@ -78,12 +78,13 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => tagList
-nmap tl :TlistToggle<cr>
+let g:Tlist_Ctags_Cmd='/usr/bin/ctags'
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Show_One_File=1
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Use_Right_Window=1
+nmap tl :TlistToggle<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => winManager
