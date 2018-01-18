@@ -1,17 +1,25 @@
 "lianxiang.zhou vim setting
-"
-set nocompatible
-filetype plugin on
-syntax on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" https://github.com/junegunn/vim-plug
 " => vim-plug
+" https://github.com/junegunn/vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'taglist.vim'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plug 'https://github.com/taketwo/vim-ros.git'
 call plug#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" basic setting
+set nocompatible
+filetype plugin indent on
+syntax on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => display setting
