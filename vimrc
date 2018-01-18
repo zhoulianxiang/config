@@ -10,7 +10,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'taglist.vim'
+Plug 'https://github.com/vim-scripts/taglist.vim.git'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plug 'https://github.com/taketwo/vim-ros.git'
 call plug#end()
