@@ -10,9 +10,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/vim-scripts/winmanager.git'
+Plug 'https://github.com/vim-scripts/bufexplorer.zip.git'
 Plug 'https://github.com/vim-scripts/taglist.vim.git'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
-Plug 'https://github.com/taketwo/vim-ros.git'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,7 +51,7 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" Be smart when using tabs
 set smarttab
 
 " 1 tab == 4 spaces
@@ -74,66 +75,48 @@ if &term =~ '^screen'
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ctrlp 
+" => winManager
+nmap wm :WMToggle<cr>:wincmd t<cr>
+let winManagerWidth=40
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => BufExplorer
+nmap be :BufExplorer<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => tagList
-let g:Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Show_One_File=1
-let Tlist_File_Fold_Auto_Close=1
-let Tlist_Use_Right_Window=1
 nmap tl :TlistToggle<cr>
+let Tlist_Auto_Highlight_Tag=1
+"let Tlist_Auto_Open
+let Tlist_Auto_Update=1
+"let Tlist_Close_On_Select
+"let Tlist_Compact_Format=1
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+"let Tlist_Display_Prototype=1
+"let Tlist_Display_Tag_Scope=1
+let Tlist_Enable_Fold_Column=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_GainFocus_On_ToggleOpen=1
+let Tlist_Highlight_Tag_On_BufEnter=1
+"let Tlist_Inc_Winwidth=1
+"let Tlist_Max_Submenu_Items
+"let Tlist_Max_Tag_Length
+"let Tlist_Process_File_Always
+"let Tlist_Show_Menu=1
+"let Tlist_Show_One_File=1
+"let Tlist_Sort_Type
+"let Tlist_Use_Horiz_Window
+let Tlist_Use_Right_Window=1
+"let Tlist_Use_SingleClick
+"let Tlist_WinHeight
+let Tlist_WinWidth=40
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => winManager
-nmap wm :WMToggle<cr>:wincmd t<cr>
-let g:winManagerWidth=30
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => miniBufExplorer
-let g:miniBufExplMapWindowNavVim=1
-nmap mb :TMiniBufExplorer<cr>
-nmap <C-LEFT> :MBEbp<CR>
-nmap <C-RIGHT> :MBEbn<CR>
-
-""""""""""""""""""""""""""""""
-" => Ctags
-"map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-"set tags=tags;
-"set autochdir
-
-""""""""""""""""""""""""""""""
-" => Cscope
-if has("cscope")
-  set csprg=/usr/bin/cscope
-  set csto=1
-  set cst
-  set nocsverb
-  " add any database in current directory
-  if filereadable("cscope.out")
-      cs add cscope.out
-  endif
-  set csverb
-endif
-
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+" => ctrlp 
 
 """"""""""""""""""""""""""""""
 " => hot key
 nmap =d :r !date +\%y\%m\%d\%H\%M<CR>
 nmap =p :set paste<CR>
 nmap =e :set nopaste<CR>
-nmap =<LEFT> :vert res -10<CR>
-nmap =<RIGHT> :vert res +10<CR>
-nmap =<UP> :res -10<CR>
-nmap =<DOWN> :res +10<CR>
