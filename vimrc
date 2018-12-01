@@ -68,17 +68,17 @@ set whichwrap=b,s,<,>,[,]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
-nmap <leader>w :NERDTreeToggle<cr>
+nmap <leader>nt :NERDTreeToggle<cr>
 let NERDTreeWinPos="right"
 let NERDTreeWinSize=40
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => BufExplorer
-nmap <leader>b :BufExplorer<cr>
+nmap <leader>be :BufExplorer<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tagbar
-nmap <leader>t :TagbarToggle<cr>
+nmap <leader>tb :TagbarToggle<cr>
 let g:tagbar_autofocus=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -86,6 +86,7 @@ let g:tagbar_autofocus=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-go
+let g:go_list_type="quickfix"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => hot key
